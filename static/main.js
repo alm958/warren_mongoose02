@@ -43,14 +43,16 @@ $(document).ready(function() {
         console.log(this.dataset);
         console.log($('this.dataset').serialize);
         var rabbitdata = $(this).data();
-        console.log(rabbitdata);
+        console.log(rabbitdata.breed);
         $.ajax({
             method:'get',
             url: '/form',
             data: rabbitdata,
             success: function(response){
                 $('form').html(response);
-                // $("#updaterabbitform").val(optionValue).find("option[value=" + rabbitdata.breed +"]").attr('selected', true);
+                $('.form').find("option").filter(function(index){
+                    return $( this ).attr( "value" ) === rabbitdata.breed ;
+                }).attr("selected", true);
             }
         })
 
