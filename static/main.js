@@ -22,6 +22,11 @@ $(document).ready(function() {
         e.preventDefault();
         console.log($('form'));
         console.log($('form').serialize());
+
+        // add timezone offset information into the query string
+        var query = $('form').serialize() + `&timezoneOffset=${new Date().getTimezoneOffset()}`;
+        console.log(query);
+
         $.ajax({
             method:'post',
             url:'/rabbits/new',

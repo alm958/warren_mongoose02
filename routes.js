@@ -10,10 +10,24 @@ module.exports = function(app){
     app.post('/rabbits/new',function(req, res){
         console.log(req.body);
         if (req.body.name.length > 1){
-            Rabbit.create(req.body, function(err, newrabbit){
-                console.log(newrabbit);
-                res.redirect('/rabbits');
-            })
+
+          // retrieve timezone offset from the body OR (||) set to 0 (no change)
+          var offset = req.body.timezoneOffset || 0;
+
+          // modify the dob based on the offset information
+          var dob = moment(req.body.dob).add(offset, 'minutes');
+
+          // remove timezone offset from the body object
+          delete(req.body.timezoneOffset);
+
+          // reassign dob with the timezone offset modified version
+          req.body.dob = dob;
+
+          // continue with normal rabbit creation
+          Rabbit.create(req.body, function(err, newrabbit){
+              console.log(newrabbit);
+              res.redirect('/rabbits');
+          });
         }
         else {
             res.status(404);
