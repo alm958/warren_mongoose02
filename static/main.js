@@ -43,12 +43,12 @@ $(document).ready(function() {
         console.log(this);
         console.log(this.dataset);
         console.log($('this.dataset').serialize);
-        var tempForm = JSON.stringify(this.dataset);
-        console.log($('tempForm').serialize);
+        var tempForm = $(this).data();
+        console.log(tempForm);
         $.ajax({
             method:'get',
             url: '/form',
-            data: JSON.stringify(this.dataset),
+            data: tempForm,
             success: function(response){
                 $('form').html(response);
             }

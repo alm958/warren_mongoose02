@@ -27,10 +27,10 @@ module.exports = function(app){
     })
 
     app.get('/form', function(req, res){
-        console.log(req.body);
-        if (req.body){
+        console.log(req.query);
+        if (req.query.id){
             console.log("form has data");
-            res.render('form.ejs',{ rabbit : req.body});
+            res.render('form',{ rabbit : req.query});
         }
         else {
             console.log("empty form");
