@@ -1,3 +1,5 @@
+<% console.log(typeof(allRabbits[0].dob)) %>
+
 <h2>The Warren</h2>
 <table>
       <tr>
@@ -12,7 +14,7 @@
         <th><%= allRabbits[i]._id %></th>
         <th><%= allRabbits[i].name %></th>
         <th><%= allRabbits[i].breed %></th>
-        <th><%= allRabbits[i].dob %></th>
+        <th><%= allRabbits[i].dob.toString() %></th>
         <th><button class="edit" data-id="<%=allRabbits[i]._id%>" data-name="<%=allRabbits[i].name%>" data-breed="<%=allRabbits[i].breed%>" data-dob="<%=allRabbits[i].dob%>" type="button" >edit</button>
             <button class="delete" data-id="<%=allRabbits[i]._id%>" data-name="<%=allRabbits[i].name%>" data-breed="<%=allRabbits[i].breed%>" data-dob="<%=allRabbits[i].dob%>" type="button" >delete</button>
             <button class="show" data-id="<%=allRabbits[i]._id%>" data-name="<%=allRabbits[i].name%>" data-breed="<%=allRabbits[i].breed%>" data-dob="<%=allRabbits[i].dob%>" type="button" >show</button>

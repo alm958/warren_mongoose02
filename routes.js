@@ -1,4 +1,5 @@
 var Rabbit = require('./db.js');
+var moment = require('moment');
 
 module.exports = function(app){
 
@@ -22,14 +23,17 @@ module.exports = function(app){
 
     app.get('/rabbits', function(req, res){
         Rabbit.find({}, function(err, allRabbits){
-        res.render('rabbitlist.ejs',{allRabbits : allRabbits});
+            res.render('rabbitlist.ejs',{allRabbits : allRabbits});
         });
+
     })
 
     app.get('/form', function(req, res){
         console.log(req.query);
         if (req.query.id){
+            req.query.dob = moment(req.query.dob.slice(4,15),"MMM DD YYYY").format("YYYY-MM-DD");
             console.log("form has data");
+            console.log(req.query);
             res.render('form',{ rabbit : req.query});
         }
         else {

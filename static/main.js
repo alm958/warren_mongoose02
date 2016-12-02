@@ -14,7 +14,6 @@ $(document).ready(function() {
         url: '/form',
         success: function(response){
             console.log("in automatic form load ajax call");
-            console.log(response);
             $('.form').html(response);
         }
     })
@@ -43,14 +42,15 @@ $(document).ready(function() {
         console.log(this);
         console.log(this.dataset);
         console.log($('this.dataset').serialize);
-        var tempForm = $(this).data();
-        console.log(tempForm);
+        var rabbitdata = $(this).data();
+        console.log(rabbitdata);
         $.ajax({
             method:'get',
             url: '/form',
-            data: tempForm,
+            data: rabbitdata,
             success: function(response){
                 $('form').html(response);
+                // $("#updaterabbitform").val(optionValue).find("option[value=" + rabbitdata.breed +"]").attr('selected', true);
             }
         })
 
