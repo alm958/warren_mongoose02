@@ -16,7 +16,7 @@
         <th><%= allRabbits[i].breed %></th>
         <th><%= allRabbits[i].dob.toString() %></th>
         <th><button class="edit" data-id="<%=allRabbits[i]._id%>" data-name="<%=allRabbits[i].name%>" data-breed="<%=allRabbits[i].breed%>" data-dob="<%=allRabbits[i].dob%>" type="button" >edit</button>
-            <button class="delete" data-id="<%=allRabbits[i]._id%>" data-name="<%=allRabbits[i].name%>" data-breed="<%=allRabbits[i].breed%>" data-dob="<%=allRabbits[i].dob%>" type="button" >delete</button>
+            <button class="delete" data-id="<%=allRabbits[i]._id%>" data-name="<%=allRabbits[i].name%>" data-breed="<%=allRabbits[i].breed%>" data-dob="<%=allRabbits[i].dob%>" type="button" data-confirm="Are you sure to delete this rabbit?">delete</button>
             <button class="show" data-id="<%=allRabbits[i]._id%>" data-name="<%=allRabbits[i].name%>" data-breed="<%=allRabbits[i].breed%>" data-dob="<%=allRabbits[i].dob%>" type="button" >show</button>
         </th>
       </tr>

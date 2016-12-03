@@ -29,3 +29,4 @@ th.action, td.action {
 form.mybutton{
     display: inline;
 }
+#dialog{display: none;}

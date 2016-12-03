@@ -7,20 +7,6 @@ module.exports = function(app){
         res.render('index');
     })
 
-    app.post('/rabbits/new',function(req, res){
-        console.log(req.body);
-        if (req.body.name.length > 1){
-            Rabbit.create(req.body, function(err, newrabbit){
-                console.log(newrabbit);
-                res.redirect('/rabbits');
-            })
-        }
-        else {
-            res.status(404);
-            res.sendFile(__dirname+'/views/error.ejs');
-        }
-    })
-
     app.get('/rabbits', function(req, res){
         Rabbit.find({}, function(err, allRabbits){
             res.render('rabbitlist.ejs',{allRabbits : allRabbits});
@@ -41,6 +27,46 @@ module.exports = function(app){
             res.render('form');
         }
     })
+
+    app.post('/rabbits/new',function(req, res){
+        console.log(req.body);
+        if (req.body.name.length > 1){
+            Rabbit.create(req.body, function(err, newrabbit){
+                console.log(newrabbit);
+                res.redirect('/rabbits');
+            })
+        }
+        else {
+            res.status(404);
+            res.sendFile(__dirname+'/views/error.ejs');
+        }
+    })
+
+    app.post('/rabbits/update',function(req, res){
+        console.log("in update rabbit");
+        console.log(req.body);
+        if (req.body.name.length > 1){
+            Rabbit.update({_id:req.body._id},req.body, function(err, newrabbit){
+                console.log(newrabbit);
+                res.redirect('/rabbits');
+            })
+        }
+        else {
+            res.status(404);
+            res.sendFile(__dirname+'/views/error.ejs');
+        }
+    })
+
+    app.post('/rabbits/destroy',function(req, res){
+        console.log("in destroy rabbit");
+        console.log(req.body);
+        Rabbit.remove({_id:req.body.id},function(err, result){
+            console.log(result);
+            res.redirect('/rabbits');
+        })
+    })
+
+
 
 
 
