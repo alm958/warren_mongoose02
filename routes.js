@@ -66,6 +66,12 @@ module.exports = function(app){
         })
     })
 
+    app.get('/rabbits/show',function(req, res){
+        console.log("in show rabbit");
+        console.log(req.query);
+        res.render('show', { rabbit : req.query});
+    })
+
 
 
 

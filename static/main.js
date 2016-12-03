@@ -65,6 +65,23 @@ $(document).ready(function() {
         })
     })
 
+    $('.form').on('reset', 'form',function(e){
+        e.preventDefault();
+        console.log($('form'));
+        console.log($('form').serialize());
+        $.ajax({
+            method:'get',
+            url: '/form',
+            success: function(response){
+                $('.form').html(response);
+                $('.error').html('');
+            },
+            error: function(response){
+                $('.error').append(response.responseText);
+            }
+        })
+    })
+
     $('.warren').on('click','button.edit',function(e){
         e.preventDefault();
         console.log(this);
@@ -131,12 +148,32 @@ $(document).ready(function() {
          });
     })
 
+    $('.warren').on('click','button.show',function(e){
+        e.preventDefault();
+        console.log(this.dataset);
+        var rabbitdata = $(this).data();
+        console.log(rabbitdata);
+        $.ajax({
+            method:'get',
+            url: '/rabbits/show',
+            data: rabbitdata,
+            success: function(response){
+                $('.showrabbit').html(response);
+            }
+        })
+    })
+
     $('.warren').on('click','button.reset',function(e){
         e.preventDefault();
         $('form').toggleClass("hide");
         $('.error').html('');
         $('.warren').empty();
         document.getElementById("newrabbitform").reset();
+    })
+
+    $('.showrabbit').on('click','button.unshow',function(e){
+        e.preventDefault();
+        $('.showrabbit').empty();
     })
 
 

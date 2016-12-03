@@ -1,6 +1,3 @@
-p{
-    color: brown;
-}
 .hide{display: none;}
 th, td {
     font-weight: lighter;
@@ -67,4 +64,11 @@ table thead tr .headerSortDown {
 }
 table thead tr .headerSortDown, table thead tr .headerSortUp {
 background-color: #8dbdd8;
+}
+.form, .showrabbit{
+    padding: 4px;
+    margin: 4px;
+    display: inline-block;
+    width: 350px;
+    vertical-align:top;
 }
