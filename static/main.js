@@ -18,6 +18,8 @@ $(document).ready(function() {
         }
     })
 
+    $("#rabbitlist").tablesorter();
+
     $('.form').on('submit', '#newrabbitform',function(e){
         e.preventDefault();
         console.log($('form'));
@@ -127,17 +129,6 @@ $(document).ready(function() {
                 },
             ]
          });
-        // $.ajax({
-        //     method:'get',
-        //     url: '/form',
-        //     data: rabbitdata,
-        //     success: function(response){
-        //         $('.form').html(response);
-        //         $('.form').find("option").filter(function(index){
-        //             return $( this ).attr( "value" ) === rabbitdata.breed ;
-        //         }).attr("selected", true);
-        //     }
-        // })
     })
 
     $('.warren').on('click','button.reset',function(e){

@@ -1,7 +1,8 @@
 <% console.log(typeof(allRabbits[0].dob)) %>
 
 <h2>The Warren</h2>
-<table>
+<table id='rabbitlist'>
+    <thead>
       <tr>
         <th>ID</th>
         <th>Name</th>
@@ -9,6 +10,8 @@
         <th>DOB</th>
         <th>Actions</th>
       </tr>
+  </thead>
+  <tbody>
       <% for (var i in allRabbits) { %>
       <tr>
         <th><%= allRabbits[i]._id %></th>
@@ -21,4 +24,8 @@
         </th>
       </tr>
       <% } %>
+  </tbody>
 </table>
+<script>
+$("#rabbitlist").tablesorter();
+</script>
