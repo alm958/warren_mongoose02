@@ -2,3 +2,24 @@
 <p>Breed : <%=rabbit.breed%></p>
 <p>DOB : <%=rabbit.dob%></p>
 <p>ID : <%=rabbit.id%></p>
+<% var rabbitimage;%>
+<% switch (rabbit.breed) {
+    case "wascally wabbit":
+        rabbitimage = "bugs.jpeg";
+        break;
+    case "American Sable":
+        rabbitimage = "american_sable.jpeg";
+        break;
+    case "Belgian Hare":
+        rabbitimage = "belgian.jpeg";
+        break;
+    case "Britannia Petite":
+        rabbitimage = "britannia_petite.jpeg";
+        break;
+    case "American fuzzy lop":
+        rabbitimage = "a_fuzzy_lop.jpeg";
+        break;
+    case "English Angora":
+        rabbitimage = "english_angora.jpeg";
+} %>
+<img src="images/<%=rabbitimage%>" alt="">
